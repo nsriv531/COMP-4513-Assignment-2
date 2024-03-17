@@ -30,7 +30,7 @@ function App() {
       </div>
       <h1 className="text-center text-2xl font-bold mt-4">COMP 4513 Assignment 2</h1>
       <div className="flex justify-center mt-8">
-        <form onSubmit={handleSubmit} className="bg-gray-100 p-8 rounded-lg shadow-md">
+        <form onSubmit={handleSubmit} className="bg-gray-150 p-8 rounded-lg shadow-md">
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 font-bold">Username:</label>
             <input

@@ -41,27 +41,3 @@
 .read-the-docs {
   color: #888;
 }
-
-/* Styles for form elements */
-input[type="text"],
-input[type="password"],
-button {
-  background-color: #f3f4f6; /* Light gray background */
-  color: #333; /* Dark gray text */
-  margin-bottom: 1rem; /* Add margin bottom to create space between elements */
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: #4a90e2; /* Blue border on focus */
-}
-
-button {
-  background-color: #4a90e2; /* Blue button */
-  color: #fff; /* White text */
-  margin-top: 1rem; /* Add margin top to create space between elements */
-}
-
-button:hover {
-  background-color: #3672b8; /* Darker blue on hover */
-}
