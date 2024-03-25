@@ -6,19 +6,25 @@ import Login from './Components/Login.jsx';
 import UserPage from './Components/UserPage.jsx'
 
 export const userContext = createContext();
-//Do I create two contexts or do I just put both in one?
-//export const userContext = createContext();
+
+//Use this to hold current connection 
+//TODO: Create .env file to hold url and key for the connection
+export const connectionContext = createContext();
 
 function App() {
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedin, setLoggedin] = useState(false);
+
+  const [connection, setConnection] = useState('');
 
   useEffect(() => {
 
     if(loggedin === true)
     {
       //Make the connection
+      setConnection('Whatever connection variable');
       console.log("Connecting");
     }
 
@@ -42,7 +48,12 @@ function App() {
       <Route path="/main" element=
         { 
           //Make sure we are loggedin before going to main 
-          loggedin ? ( <UserPage IsLoggedIn={loggedin}/>)
+          loggedin ? ( 
+          <connectionContext.Provider value={{connection}}>
+            <UserPage IsLoggedIn={loggedin}/>
+          </connectionContext.Provider>
+          
+          )
           :( <Navigate replace to={"/"} /> )
         } 
       />
