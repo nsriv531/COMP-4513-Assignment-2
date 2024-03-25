@@ -24,7 +24,7 @@ function App() {
     if(loggedin === true)
     {
       //Make the connection
-      setConnection('Whatever connection variable');
+      setConnection('Connection VAR');
       console.log("Connecting");
     }
 

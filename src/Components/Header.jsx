@@ -5,10 +5,16 @@ import { useState } from "react";
 
 const Header = (props) => {
 
+
+
+   
+
     return (
         <div>
             <select onChange={props.seasonSelected}>
-                {props.options}
+                {props.years.map(y => 
+                    <option value={y} key={y}>{y}</option>
+                )};
             </select>
             <button onClick={props.showFavorites}>Favorites</button>
             <button onClick={props.ShowAbout}>About</button>

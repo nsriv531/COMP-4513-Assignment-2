@@ -10,35 +10,40 @@ const Races = createContext();
 
 const UserPage = (props) =>{
 
-    const [seasonInfo,setSeason] = useState(null);
+    const [selectedSeason,setSelectedSeason] = useState(null);
     const [races, setRaces] = useState(null);
     const {connection} = useContext(connectionContext);
 
     const OnSeasonSelected = (e) => {
         //Someting like this will be used
-        setSeason(e.target.value);
+        console.log("new season be: " + e.target.value);
+        setSelectedSeason(e.target.value);
 
     }
 
     useEffect(()=> {
 
+        console.log("season changed making new fetch");
         //Make a new request with the new selectedSeason
         //Something like
         //const newRaces = connection.GetTheGoods();
         //setRaces(newRaces);
-        //Recalculate options
+       
 
     },[selectedSeason]);
 
-    //Pass this from props or create it from information
-    const options = [];
+    //Pass this from props or create it from information passed down 
+    const seasons = [1990,1991,1992,1993,1994,1995,1996,1997];
 
 
 
     return (
-        <Races.Provider value={Races}>
+        <Races.Provider value={races}>
+        <header>
+            <Header years={seasons} seasonSelected={OnSeasonSelected}></Header>
+        </header>
         <main>
-            <Header option={options} seasonSelected={OnSeasonSelected}></Header>
+
         </main>
         </Races.Provider>
     );
