@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const Circuit = (props) => {
+const Races = (props) => {
 
     //Need to store, this probably does not need to be a state
     const round = props.round;
@@ -15,4 +15,4 @@ const Circuit = (props) => {
 
 }
 
-export default Circuit;
+export default Races;

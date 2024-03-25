@@ -13,11 +13,13 @@ export const connectionContext = createContext();
 
 function App() {
 
+  //Convert this into one object that also holds the favorites???
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedin, setLoggedin] = useState(false);
 
   const [connection, setConnection] = useState('');
+
 
   useEffect(() => {
 
@@ -36,7 +38,7 @@ function App() {
 
   //Instead of the context I can call Login component as such
   //      <Login userState={{username,setUsername}} passwordState={{password,setPassword}}/>
-
+  
   return (
     <>
     <Routes>
