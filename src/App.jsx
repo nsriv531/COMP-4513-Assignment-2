@@ -4,6 +4,7 @@ import './App.css'; // Import your CSS file
 import {Routes, Route, Navigate} from 'react-router-dom';
 import Login from './Components/Login.jsx';
 import UserPage from './Components/UserPage.jsx'
+import Favorites from './Components/Favorites.jsx';
 
 export const userContext = createContext();
 
@@ -52,9 +53,9 @@ function App() {
           //Make sure we are loggedin before going to main 
           loggedin ? ( 
           <connectionContext.Provider value={{connection}}>
-            <UserPage IsLoggedIn={loggedin}/>
+            <Favorites children={<UserPage IsLoggedIn={loggedin}/>}>
+            </Favorites>
           </connectionContext.Provider>
-          
           )
           :( <Navigate replace to={"/"} /> )
         } 

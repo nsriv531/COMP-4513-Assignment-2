@@ -2,11 +2,16 @@ import {useState , useEffect, useContext, createContext} from "react";
 import {useNavigate} from "react-router-dom";
 import { connectionContext } from "../App.jsx";
 import Header from './Header.jsx';
+import Favorites from "./Favorites";
+import ContextTester  from "./ContextTester.jsx";
+import RacesHolder from "./RacesHolder.jsx"
 
 //Not sure if this needs to be a context
 const RacesContext = createContext();
 
 //Need to find a place to put this, either leave it here but it is more of an account level so maybe one higher up?
+//The problem is that the favorites are split into 3 types,
+//1. Driver --- 2. Constructors --- 3. Circuits
 const favoritesContext = createContext(); 
 
 //This would be the main page where everything is created
@@ -20,8 +25,8 @@ const UserPage = (props) =>{
 
     const [selectedSeason,setSelectedSeason] = useState(null);
 
-    const [races, setRaces] = useState(null);
-    
+    const [races, setRaces] = useState([{raceId:1,name:"racename",round:"2"}]);
+
     const {connection} = useContext(connectionContext);
 
     const OnSeasonSelected = (e) => {
@@ -39,7 +44,7 @@ const UserPage = (props) =>{
         //const newRaces = connection.GetTheGoods();
         //setRaces(newRaces);
         //probably get all the races that are of that selected year
-
+        setRaces([{raceId:1,name:"racename",round:"2"},{raceId:2,name:"anotherRace",round:"3"}]);
        
 
     },[selectedSeason]);
@@ -48,20 +53,20 @@ const UserPage = (props) =>{
     //So need to calculate it at somepoint but just once
     const seasons = [1990,1991,1992,1993,1994,1995,1996,1997];
 
-
+    // );
 
     return (
+        //Move Favorites to the APP.jsx
         <RacesContext.Provider value={races}>
-        <header>
-            <Header years={seasons} seasonSelected={OnSeasonSelected}></Header>
-        </header>
-        <main>
-            <RacesHolder circits={circuits}>
-
-            </RacesHolder>
-        </main>
+            <header>
+                <Header years={seasons} OnSeasonSelected={OnSeasonSelected}></Header>
+            </header>
+            <main>
+                <RacesHolder races={races} season={selectedSeason}></RacesHolder>
+            </main>
         </RacesContext.Provider>
-    );
+
+    )
 }
 
 export default UserPage;
