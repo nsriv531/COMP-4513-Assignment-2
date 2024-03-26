@@ -37,8 +37,6 @@ const RacesHolder = (props) => {
         //We want to reverse the sort order of the races here
         setReverse(!IsReverseOrder);
     }
-
-
     return (
         <div>
         <h1>{props.season} Races</h1>
@@ -47,10 +45,8 @@ const RacesHolder = (props) => {
             </button>
             <ul>
                 {
-                    IsReverseOrder? props.races.map( c =><Race name={c.name} round={c.round}></Race>) : props.races.toReversed().map(c =><Race name={c.name} round={c.round}></Race>)
+                    IsReverseOrder? props.races.map( c =><Race name={c.name} round={c.round} key={c.raceId}></Race>) : props.races.toReversed().map(c =><Race name={c.name} round={c.round} key={c.raceId}></Race>)
                 }
-
-                
             </ul>            
         </div>
 

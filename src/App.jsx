@@ -27,6 +27,9 @@ function App() {
     if(loggedin === true)
     {
       //Make the connection
+      //const supaURL = process.env.supaURL;
+      //const supaKey = process.env.supaKey;
+      //const supabase = supa.createClient(supaURL, supaKey);
       setConnection('Connection VAR');
       console.log("Connecting");
     }

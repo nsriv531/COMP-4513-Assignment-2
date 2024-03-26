@@ -16,7 +16,7 @@ const Favorites = (props) =>{
             {console.log("rendering favorites tester")}
             {props.children}
         </FavoritesContext.Provider>
-    )
+    );
 
 }
 export default Favorites;

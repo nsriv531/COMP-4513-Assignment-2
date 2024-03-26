@@ -33,21 +33,16 @@ const UserPage = (props) =>{
         //Someting like this will be used
         console.log("new season be: " + e.target.value);
         setSelectedSeason(e.target.value);
-
-    }
-
-    useEffect(()=> {
-
         console.log("season changed making new fetch");
         //Make a new request with the new selectedSeason
         //Something like
         //const newRaces = connection.GetTheGoods();
         //setRaces(newRaces);
         //probably get all the races that are of that selected year
+        
         setRaces([{raceId:1,name:"racename",round:"2"},{raceId:2,name:"anotherRace",round:"3"}]);
-       
 
-    },[selectedSeason]);
+    }
 
     //Pass this from props or create it from information passed down, but We only need to update this information one time for this assignment
     //So need to calculate it at somepoint but just once
